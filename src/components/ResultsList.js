@@ -15,8 +15,8 @@ const ResultsList = ({ title, results, navigation }) => {
         return null
     }
     return (
-        <View style = {styles.containerStyle}>
-            <Text style = {styles.titleStyle}>{title}</Text>
+        <View style = {styles.container}>
+            <Text style = {styles.title}>{title}</Text>
             <FlatList
                 horizontal
                 showsHorizontalScrollIndicator = {false}
@@ -35,13 +35,13 @@ const ResultsList = ({ title, results, navigation }) => {
 }
 
 const styles = StyleSheet.create({
-    titleStyle: {
+    title: {
         fontSize: 18,
         fontWeight: 'bold',
         marginLeft: 15,
         marginBottom: 5
     },
-    containerStyle: {
+    container: {
         marginBottom: 10
     }
 })

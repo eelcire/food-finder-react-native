@@ -1,5 +1,6 @@
 import React from 'react'
 import { View, Text, StyleSheet, FlatList } from 'react-native'
+import callNumber from '../utils/phone'
 
 const MoreInfoScreen = ({ navigation }) => {
     const data = navigation.state.params.result
@@ -39,7 +40,7 @@ const MoreInfoScreen = ({ navigation }) => {
     }
 
     return (
-            <View>
+            <View style = {styles.container}>
                 <FlatList
                     data = {data}
                     keyExtractor = {(day) => day.day + day.end}
@@ -47,13 +48,20 @@ const MoreInfoScreen = ({ navigation }) => {
                         return <Text>{`${convertDay(item.day)}: ${convertTime(item.start.substr(0, 2)).substr(0, 2)}:${item.start.substr(2)}${convertTime(item.start.substr(0, 2)).substr(2)} - ${convertTime(item.end.substr(0, 2)).substr(0, 2)}:${item.end.substr(2)}${convertTime(item.end.substr(0, 2)).substr(2)}`}</Text>
                     }}
                 />
-                <Text>Contact: {contact}</Text>
+                <Text style = {styles.contact}>Contact: {contact}</Text>
             </View>
     )
 }
 
 const styles = StyleSheet.create({
-
+    container: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginTop: 15
+    },
+    contact: {
+        marginTop: 15
+    }
 })
 
 export default MoreInfoScreen
